@@ -49,3 +49,78 @@ async def lastfm_track(
             if "error" in data:
                 return {"error": "You've likely entered a track or artist that doesn't exist."} # REturn an error if the track or artist doesn't exist.
             return data
+        
+    async def get_track_artist(
+        mbid: Optional[str],
+        track: str,
+        artist: str,
+        username: Optional[str],
+        autocorrect: Optional[int],
+        api_key: str,
+    ):
+        """
+        Get a track's information from the popular site Last.fm.
+
+        Get an API key at https://www.last.fm/api/account/create.
+        """
+
+        data = await lastfm_track(
+            mbid=mbid,
+            track=track,
+            artist=artist,
+            username=username,
+            autocorrect=autocorrect,
+            api_key=api_key,
+        )
+
+        return data['track']['artist']['name']
+    
+    async def get_track_album(
+        mbid: Optional[str],
+        track: str,
+        artist: str,
+        username: Optional[str],
+        autocorrect: Optional[int],
+        api_key: str,
+    ):
+        """
+        Get a track's information from the popular site Last.fm.
+
+        Get an API key at https://www.last.fm/api/account/create.
+        """
+
+        data = await lastfm_track(
+            mbid=mbid,
+            track=track,
+            artist=artist,
+            username=username,
+            autocorrect=autocorrect,
+            api_key=api_key,
+        )
+
+        return data['track']['album']['title']
+
+    async def get_track_duration(
+        mbid: Optional[str],
+        track: str,
+        artist: str,
+        username: Optional[str],
+        autocorrect: Optional[int],
+        api_key: str,
+    ):
+        """
+        Get a track's information from the popular site Last.fm.
+
+        Get an API key at https://www.last.fm/api/account/create.
+        """
+
+        data = await lastfm_track(
+            mbid=mbid,
+            track=track,
+            artist=artist,
+            username=username,
+            autocorrect=autocorrect,
+            api_key=api_key,
+        )
+
+        return data['track']['duration']
