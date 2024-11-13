@@ -1,1 +1,1 @@
-a application to test apis
+A simple to use python package which makes api requests easier.
